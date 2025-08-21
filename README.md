@@ -1,8 +1,8 @@
 ## vscode search all terminals
 
-vscode extension to search all terminals for regex
+vscode extension to search all terminals for regex. Saves all results to tempfile.
 
-https://github.com/user-attachments/assets/76f2509f-fc89-4a6a-9fdd-6d6b32c80e16
+![screencap](https://raw.githubusercontent.com/qpwo/vscode_search_all_terminals/main/screencap.gif)
 
 Usage:
 
