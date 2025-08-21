@@ -1,4 +1,7 @@
 const vscode = require('vscode');
+const fs = require('fs').promises;
+const path = require('path');
+const os = require('os');
 
 let lastRegex = '';
 
@@ -56,8 +59,28 @@ async function activate(context) {
         }
 
         if (searchResults.length > 0) {
-            const doc = await vscode.workspace.openTextDocument({ content: searchResults.join('\n') });
-            await vscode.window.showTextDocument(doc, { viewColumn: vscode.ViewColumn.Beside, preview: false });
+            let i = 0;
+            let resultsPath;
+            while (true) {
+                resultsPath = path.join(os.tmpdir(), `termsearchresults_${i}.log`);
+                try {
+                    await fs.stat(resultsPath);
+                    i++;
+                } catch (e) {
+                    if (e.code === 'ENOENT') {
+                        break;
+                    }
+                    vscode.window.showErrorMessage(`Error finding temp file path: ${e.message}`);
+                    return;
+                }
+            }
+            try {
+                await fs.writeFile(resultsPath, searchResults.join('\n'));
+                const doc = await vscode.workspace.openTextDocument(resultsPath);
+                await vscode.window.showTextDocument(doc, { viewColumn: vscode.ViewColumn.Active, preview: false });
+            } catch (e) {
+                 vscode.window.showErrorMessage(`Failed to write/open results file: ${e.message}`);
+            }
         } else {
             vscode.window.showInformationMessage('No results found.');
         }

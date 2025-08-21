@@ -2,11 +2,11 @@
   "name": "vscode-search-all-terminals",
   "displayName": "Search All Terminals",
   "description": "A VSCode extension to search all open terminals for a regex.",
-  "version": "0.0.1",
-  "publisher": "halp-user",
+  "version": "1.0.1",
+  "publisher": "qpwo",
   "repository": {
     "type": "git",
-    "url": "https://github.com/halp-user/vscode-search-all-terminals.git"
+    "url": "https://github.com/qpwo/vscode_search_all_terminals.git"
   },
   "license": "MIT",
   "engines": {
@@ -14,9 +14,6 @@
   },
   "categories": [
     "Other"
-  ],
-  "activationEvents": [
-    "onCommand:search-all-terminals.search"
   ],
   "main": "./extension.js",
   "contributes": {
@@ -28,6 +25,6 @@
     ]
   },
   "devDependencies": {
-    "vsce": "^2.15.0"
+    "@vscode/vsce": "^3.6.0"
   }
 }
