@@ -6,3 +6,7 @@ docs
 ignore
 *.png
 !icon.png
+*.gif
+*.mp4
+*.sh
+.gitignore

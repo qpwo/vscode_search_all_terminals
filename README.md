@@ -18,3 +18,7 @@ term2_term2name: the result again
 term2_term2name: the result is here
 ...
 ```
+
+[extension](https://marketplace.visualstudio.com/items?itemName=qpwo.vscode-search-all-terminals)
+
+[repo](https://github.com/qpwo/vscode_search_all_terminals)
